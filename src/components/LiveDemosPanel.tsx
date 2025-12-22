@@ -53,7 +53,7 @@ function DemoLinkRow({ link, reduceMotion, isLast }: DemoLinkRowProps): ReactEle
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`group flex h-14 items-center gap-3 px-4 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[color:var(--ring-color)] ${
+        className={`group flex h-14 items-center gap-3 px-4 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--ring-color)] ${
           link.isViewSource ? 'opacity-[var(--view-source-opacity)] hover:opacity-100' : ''
         }`}
         initial={false}

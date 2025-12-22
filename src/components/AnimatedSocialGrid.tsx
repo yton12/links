@@ -116,7 +116,7 @@ export function AnimatedSocialGrid({ reduceMotion }: AnimatedSocialGridProps): R
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-12 w-12 items-center justify-center rounded-full text-[color:var(--icon-color)] transition-colors hover:text-[color:var(--icon-color-hover)] focus:outline-none focus:ring-2 focus:ring-[color:var(--ring-color)]"
+          className="flex h-12 w-12 items-center justify-center rounded-full text-[color:var(--icon-color)] transition-colors hover:text-[color:var(--icon-color-hover)] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring-color)]"
           variants={activeIconVariants}
           whileHover={reduceMotion ? undefined : { y: -3 }}
           whileTap={reduceMotion ? undefined : { scale: 0.9, opacity: 0.7 }}

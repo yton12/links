@@ -160,7 +160,7 @@ describe('PrimaryCTA', () => {
     const { container } = render(<PrimaryCTA href="https://example.com" label="Test" />);
 
     const link = container.querySelector('a');
-    expect(link?.className).toContain('focus:outline-none');
-    expect(link?.className).toContain('focus:ring-2');
+    expect(link?.className).toContain('outline-none');
+    expect(link?.className).toContain('focus-visible:ring-2');
   });
 });

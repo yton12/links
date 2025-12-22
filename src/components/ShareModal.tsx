@@ -107,7 +107,7 @@ export function ShareModal({ isOpen, onClose, url }: ShareModalProps): React.Rea
               </h2>
               <button
                 onClick={onClose}
-                className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="rounded-lg p-2 text-zinc-400 transition-colors hover:bg-white/10 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-white/30"
                 aria-label="Close modal"
               >
                 <X size={20} />
@@ -122,15 +122,15 @@ export function ShareModal({ isOpen, onClose, url }: ShareModalProps): React.Rea
                   type="text"
                   value={url}
                   readOnly
-                  className="flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 font-mono text-sm text-zinc-300 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+                  className="flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 font-mono text-sm text-zinc-300 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50"
                   aria-label="Resume URL"
                 />
                 <motion.button
                   onClick={handleCopy}
-                  className={`flex items-center gap-2 rounded-lg px-4 py-2.5 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0a0a0a] ${
+                  className={`flex items-center gap-2 rounded-lg px-4 py-2.5 font-medium transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] ${
                     copied
-                      ? 'bg-emerald-500/20 text-emerald-400 focus:ring-emerald-500/50'
-                      : 'bg-white text-black hover:bg-zinc-200 focus:ring-white/50'
+                      ? 'bg-emerald-500/20 text-emerald-400 focus-visible:ring-emerald-500/50'
+                      : 'bg-white text-black hover:bg-zinc-200 focus-visible:ring-white/50'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

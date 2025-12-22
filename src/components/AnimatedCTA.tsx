@@ -14,10 +14,10 @@ export interface AnimatedCTAProps {
 }
 
 const primaryStyles =
-  'bg-[image:var(--btn-primary-gradient)] text-[color:var(--btn-primary-text)] shadow-[var(--btn-primary-shadow)] focus:ring-[color:var(--ring-color)]';
+  'bg-[image:var(--btn-primary-gradient)] text-[color:var(--btn-primary-text)] shadow-[var(--btn-primary-shadow)] focus-visible:ring-[color:var(--ring-color)]';
 
 const secondaryStyles =
-  'bg-[color:var(--btn-secondary-bg)] text-[color:var(--btn-secondary-text)] border border-[color:var(--btn-secondary-border)] focus:ring-[color:var(--ring-color)]';
+  'bg-[color:var(--btn-secondary-bg)] text-[color:var(--btn-secondary-text)] border border-[color:var(--btn-secondary-border)] focus-visible:ring-[color:var(--ring-color)]';
 
 export function AnimatedCTA({
   href,
@@ -65,7 +65,7 @@ export function AnimatedCTA({
   return (
     <Link href={href} className="block flex-1">
       <motion.span
-        className={`flex h-12 w-full items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[color:var(--ring-offset)] ${variantStyles}`}
+        className={`flex h-12 w-full items-center justify-center gap-2 rounded-xl px-6 text-base font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)] ${variantStyles}`}
         whileHover={reduceMotion ? undefined : hoverAnimation}
         whileTap={reduceMotion ? undefined : tapAnimation}
         style={{

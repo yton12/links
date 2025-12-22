@@ -46,7 +46,7 @@ export function ThemeToggle(): React.ReactElement | null {
     <motion.button
       type="button"
       onClick={toggleTheme}
-      className="fixed right-6 top-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--card-border)] bg-[color:var(--card-surface)] text-[color:var(--icon-color)] backdrop-blur-md transition-colors hover:border-[color:var(--card-border-hover)] hover:text-[color:var(--icon-color-hover)] focus:outline-none focus:ring-2 focus:ring-[color:var(--ring-color)] focus:ring-offset-2 focus:ring-offset-[color:var(--ring-offset)]"
+      className="fixed right-6 top-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--card-border)] bg-[color:var(--card-surface)] text-[color:var(--icon-color)] backdrop-blur-md transition-colors hover:border-[color:var(--card-border-hover)] hover:text-[color:var(--icon-color-hover)] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--ring-color)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]"
       whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
       whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17 }}

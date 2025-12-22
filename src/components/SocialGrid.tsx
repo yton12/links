@@ -80,7 +80,7 @@ export function SocialGrid(): React.ReactElement {
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-12 w-12 items-center justify-center rounded-full text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="flex h-12 w-12 items-center justify-center rounded-full text-gray-400 transition-colors hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           whileTap={{ scale: 0.9, opacity: 0.7 }}
           onTap={handleTap}
           aria-label={link.name}

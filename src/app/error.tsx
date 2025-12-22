@@ -119,7 +119,7 @@ export default function Error({ reset }: ErrorProps): React.ReactElement {
           <motion.button
             type="button"
             onClick={reset}
-            className="flex h-12 w-full items-center justify-center rounded-lg bg-[color:var(--btn-primary-bg)] text-base font-semibold text-[color:var(--btn-primary-text)] transition-shadow focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[color:var(--ring-offset)]"
+            className="flex h-12 w-full items-center justify-center rounded-lg bg-[color:var(--btn-primary-bg)] text-base font-semibold text-[color:var(--btn-primary-text)] transition-shadow outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]"
             whileHover={
               shouldReduceMotion
                 ? undefined
@@ -134,7 +134,7 @@ export default function Error({ reset }: ErrorProps): React.ReactElement {
           {/* Secondary Action: Go Home */}
           <Link href="/" className="block">
             <motion.span
-              className="flex h-12 w-full items-center justify-center rounded-lg text-base font-medium text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[color:var(--ring-offset)]"
+              className="flex h-12 w-full items-center justify-center rounded-lg text-base font-medium text-[color:var(--text-secondary)] transition-colors hover:text-[color:var(--text-primary)] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]"
               whileHover={shouldReduceMotion ? undefined : { y: -1 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}

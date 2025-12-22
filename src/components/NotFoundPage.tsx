@@ -97,7 +97,7 @@ export function NotFoundPage(): React.ReactElement {
         <motion.div className="mt-10 w-full" variants={textVariants}>
           <Link href="/" className="block">
             <motion.span
-              className="flex h-12 min-w-[200px] items-center justify-center rounded-lg bg-[color:var(--btn-primary-bg)] font-mono text-base font-medium text-[color:var(--btn-primary-text)] transition-colors focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-cyan)] focus:ring-offset-2 focus:ring-offset-[color:var(--ring-offset)]"
+              className="flex h-12 min-w-[200px] items-center justify-center rounded-lg bg-[color:var(--btn-primary-bg)] font-mono text-base font-medium text-[color:var(--btn-primary-text)] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--ring-offset)]"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: 'spring', stiffness: 400, damping: 17 }}

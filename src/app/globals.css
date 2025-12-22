@@ -140,6 +140,24 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+/* Remove iOS tap highlight on interactive elements */
+a,
+button,
+[role='button'] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom text selection color */
+::selection {
+  background-color: var(--accent-cyan);
+  color: var(--background);
+}
+
+::-moz-selection {
+  background-color: var(--accent-cyan);
+  color: var(--background);
+}
+
 /* Safe area padding for iOS home indicator */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .pb-safe {

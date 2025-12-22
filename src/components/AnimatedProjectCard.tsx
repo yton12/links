@@ -77,7 +77,7 @@ export function AnimatedProjectCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`relative flex flex-col gap-3 overflow-hidden rounded-xl border border-[color:var(--card-border)] bg-[color:var(--card-surface)] p-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--accent-cyan)] before:pointer-events-none before:absolute before:inset-x-0 before:bottom-0 before:h-24 after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:bg-[image:var(--card-surface-gradient)] ${glowStyles[glowColor]}`}
+      className={`relative flex flex-col gap-3 overflow-hidden rounded-xl border border-[color:var(--card-border)] bg-[color:var(--card-surface)] p-4 shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-cyan)] before:pointer-events-none before:absolute before:inset-x-0 before:bottom-0 before:h-24 after:pointer-events-none after:absolute after:inset-0 after:rounded-xl after:bg-[image:var(--card-surface-gradient)] ${glowStyles[glowColor]}`}
       initial="initial"
       whileHover={reduceMotion ? undefined : customHoverVariant}
       whileTap={reduceMotion ? undefined : 'tap'}
