@@ -11,7 +11,7 @@ export function HeroSection(): React.ReactElement {
         <AvatarGlow />
         <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white/10">
           <Image
-            src="/avatar.png"
+            src="/avatar.webp"
             alt="Dinesh - Senior Software Engineer"
             width={96}
             height={96}

@@ -1,7 +1,0 @@
-passfx: https://github.com/dinesh-git17/passfx
-debate lab: https://github.com/dinesh-git17/debate-lab
-github: https://github.com/dinesh-git17
-linkedin: https://www.linkedin.com/in/dineshsdawonauth/
-x: https://x.com/dinbuilds
-tiktok: https://www.tiktok.com/@dinbuilds?_r=1&_t=ZS-92QjKdghybp
-youtube: https://www.youtube.com/@DinBuilds

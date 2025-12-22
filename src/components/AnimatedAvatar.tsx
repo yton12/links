@@ -19,7 +19,7 @@ export function AnimatedAvatar({ reduceMotion }: AnimatedAvatarProps): React.Rea
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <Image
-          src="/avatar.png"
+          src="/avatar.webp"
           alt="Dinesh - Senior Software Engineer"
           width={96}
           height={96}
