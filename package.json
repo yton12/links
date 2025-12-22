@@ -16,6 +16,7 @@
     "commit-msg-guard": "node scripts/commit-msg-guard.js"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "framer-motion": "^12.23.26",
     "next": "16.1.0",
     "react": "19.2.3",

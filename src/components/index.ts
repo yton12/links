@@ -4,6 +4,8 @@ export { PrimaryCTA } from './PrimaryCTA';
 export { type PrimaryCTAProps } from './PrimaryCTA';
 export { ProjectCard } from './ProjectCard';
 export { type ProjectCardProps } from './ProjectCard';
+export { Skeleton } from './Skeleton';
+export { type SkeletonProps } from './Skeleton';
 export { SocialGrid } from './SocialGrid';
 export { StatusIndicator } from './StatusIndicator';
 export { type StatusIndicatorProps } from './StatusIndicator';

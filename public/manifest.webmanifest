@@ -1,7 +1,7 @@
 {
   "name": "Dinesh Links",
-  "short_name": "Dinesh",
-  "description": "Personal links hub for Dinesh - Senior Software Engineer",
+  "short_name": "DinBuilds",
+  "description": "A curated hub of projects, experiments, and ideas by Dinesh — a software engineer who builds systems that ship.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#050505",

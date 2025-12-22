@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { Inter } from 'next/font/google';
 import { Geist_Mono } from 'next/font/google';
 
@@ -18,9 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Dinesh | Senior Software Engineer',
+  title: 'Dinesh | I Build Things That (Usually) Work',
   description:
-    'Personal links hub for Dinesh - Senior Software Engineer building better digital experiences. Connect via GitHub, LinkedIn, X, and more.',
+    'A curated hub of projects, experiments, and ideas by Dinesh — a software engineer who builds systems that ship.',
   metadataBase: new URL('https://links.dineshd.dev'),
   alternates: {
     canonical: '/',
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.webmanifest',
   openGraph: {
-    title: 'Dinesh | Senior Software Engineer',
+    title: 'Dinesh | I Build Things That (Usually) Work',
     description:
-      'Personal links hub for Dinesh - Senior Software Engineer building better digital experiences.',
+      'A curated hub of projects, experiments, and ideas by Dinesh — a software engineer who builds systems that ship.',
     url: 'https://links.dineshd.dev',
     siteName: 'Dinesh Links',
     locale: 'en_US',
@@ -47,15 +48,15 @@ export const metadata: Metadata = {
         url: '/og.jpeg',
         width: 682,
         height: 360,
-        alt: 'Dinesh - Senior Software Engineer',
+        alt: 'Dinesh - I Build Things That (Usually) Work',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dinesh | Senior Software Engineer',
+    title: 'Dinesh | I Build Things That (Usually) Work',
     description:
-      'Personal links hub for Dinesh - Senior Software Engineer building better digital experiences.',
+      'A curated hub of projects, experiments, and ideas by Dinesh — a software engineer who builds systems that ship.',
     images: ['/og.jpeg'],
     creator: '@dinbuilds',
   },
@@ -87,7 +88,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Dinesh',
-              jobTitle: 'Senior Software Engineer',
+              jobTitle: 'I Build Things That (Usually) Work',
               url: 'https://links.dineshd.dev',
               sameAs: [
                 'https://github.com/dinesh-git17',
@@ -100,7 +101,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${inter.variable} ${geistMono.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
