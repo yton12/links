@@ -14,14 +14,23 @@ export function AvatarGlow(): React.ReactElement {
   }, []);
 
   const isDark = mounted ? resolvedTheme === 'dark' : true;
-  const baseOpacity = isDark ? 0.5 : 0.2;
-  const peakOpacity = isDark ? 0.8 : 0.35;
 
+  // Light mode: no glow animation, use subtle shadow instead
+  if (!isDark && mounted) {
+    return (
+      <div
+        className="absolute inset-0 rounded-full shadow-lg shadow-zinc-300/50"
+        aria-hidden="true"
+      />
+    );
+  }
+
+  // Dark mode: animated gradient glow for identity emphasis
   return (
     <motion.div
       className="absolute inset-0 rounded-full bg-gradient-to-r from-[color:var(--accent-cyan)] to-[color:var(--accent-emerald)] blur-xl"
       animate={{
-        opacity: [baseOpacity, peakOpacity, baseOpacity],
+        opacity: [0.5, 0.8, 0.5],
         scale: [1, 1.05, 1],
       }}
       transition={{

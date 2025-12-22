@@ -5,8 +5,12 @@
   --background: #050505;
   --foreground: #ededed;
   --card-surface: #0a0a0a;
-  --card-border: rgba(255, 255, 255, 0.1);
-  --card-border-hover: rgba(255, 255, 255, 0.2);
+  --card-surface-gradient: linear-gradient(to bottom right, rgba(255, 255, 255, 0.03), transparent);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --card-border-hover: rgba(6, 182, 212, 0.3);
+  --card-border-hover-alt: rgba(16, 185, 129, 0.3);
+  --card-shadow-hover: 0px 10px 30px -10px rgba(6, 182, 212, 0.15);
+  --card-shadow-hover-alt: 0px 10px 30px -10px rgba(16, 185, 129, 0.15);
   --accent-cyan: #06b6d4;
   --accent-emerald: #10b981;
   --accent-cyan-dark: #0891b2;
@@ -17,9 +21,14 @@
   --text-muted: #6b7280;
   --btn-primary-bg: #ffffff;
   --btn-primary-text: #000000;
-  --btn-secondary-bg: rgba(255, 255, 255, 0.1);
+  --btn-primary-gradient: linear-gradient(to bottom, #ffffff, #f4f4f5);
+  --btn-primary-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  --btn-primary-shadow-hover: 0 8px 30px rgba(255, 255, 255, 0.2);
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-bg-hover: rgba(255, 255, 255, 0.1);
   --btn-secondary-text: #ffffff;
   --btn-secondary-border: rgba(255, 255, 255, 0.1);
+  --btn-secondary-border-hover: rgba(255, 255, 255, 0.2);
   --skeleton-base: rgba(255, 255, 255, 0.05);
   --skeleton-highlight: rgba(255, 255, 255, 0.1);
   --ring-offset: #050505;
@@ -27,12 +36,15 @@
   --glow-opacity: 0.5;
   --icon-color: #9ca3af;
   --icon-color-hover: #ffffff;
-  --badge-bg: transparent;
-  --badge-border: rgba(255, 255, 255, 0.1);
+  --badge-bg: rgba(255, 255, 255, 0.05);
+  --badge-border: rgba(255, 255, 255, 0.05);
   --badge-text: #9ca3af;
   --divider: rgba(255, 255, 255, 0.1);
   --toast-bg: rgba(0, 0, 0, 0.8);
   --toast-text: #ffffff;
+  --demo-link-hover-bg: rgba(255, 255, 255, 0.05);
+  --demo-link-tap-bg: rgba(255, 255, 255, 0.1);
+  --view-source-opacity: 0.8;
 }
 
 /* Light Mode */
@@ -40,8 +52,12 @@
   --background: #fafafa;
   --foreground: #18181b;
   --card-surface: #ffffff;
-  --card-border: rgba(0, 0, 0, 0.08);
-  --card-border-hover: rgba(0, 0, 0, 0.15);
+  --card-surface-gradient: none;
+  --card-border: #e4e4e7;
+  --card-border-hover: #d4d4d8;
+  --card-border-hover-alt: #d4d4d8;
+  --card-shadow-hover: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover-alt: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
   --accent-cyan: #0891b2;
   --accent-emerald: #059669;
   --accent-cyan-dark: #0e7490;
@@ -52,14 +68,19 @@
   --text-muted: #a1a1aa;
   --btn-primary-bg: #18181b;
   --btn-primary-text: #ffffff;
-  --btn-secondary-bg: #f4f4f5;
+  --btn-primary-gradient: linear-gradient(to bottom, #27272a, #18181b);
+  --btn-primary-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --btn-primary-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --btn-secondary-bg: #ffffff;
+  --btn-secondary-bg-hover: #fafafa;
   --btn-secondary-text: #18181b;
   --btn-secondary-border: #e4e4e7;
+  --btn-secondary-border-hover: #d4d4d8;
   --skeleton-base: #e4e4e7;
   --skeleton-highlight: #f4f4f5;
   --ring-offset: #fafafa;
   --ring-color: rgba(0, 0, 0, 0.3);
-  --glow-opacity: 0.2;
+  --glow-opacity: 0;
   --icon-color: #71717a;
   --icon-color-hover: #18181b;
   --badge-bg: #f4f4f5;
@@ -68,6 +89,9 @@
   --divider: #e4e4e7;
   --toast-bg: rgba(255, 255, 255, 0.95);
   --toast-text: #18181b;
+  --demo-link-hover-bg: #f4f4f5;
+  --demo-link-tap-bg: #e4e4e7;
+  --view-source-opacity: 0.8;
 }
 
 @theme inline {
@@ -76,6 +100,7 @@
   --color-card-surface: var(--card-surface);
   --color-card-border: var(--card-border);
   --color-card-border-hover: var(--card-border-hover);
+  --color-card-border-hover-alt: var(--card-border-hover-alt);
   --color-accent-cyan: var(--accent-cyan);
   --color-accent-emerald: var(--accent-emerald);
   --color-accent-cyan-dark: var(--accent-cyan-dark);
@@ -87,8 +112,10 @@
   --color-btn-primary-bg: var(--btn-primary-bg);
   --color-btn-primary-text: var(--btn-primary-text);
   --color-btn-secondary-bg: var(--btn-secondary-bg);
+  --color-btn-secondary-bg-hover: var(--btn-secondary-bg-hover);
   --color-btn-secondary-text: var(--btn-secondary-text);
   --color-btn-secondary-border: var(--btn-secondary-border);
+  --color-btn-secondary-border-hover: var(--btn-secondary-border-hover);
   --color-skeleton-base: var(--skeleton-base);
   --color-skeleton-highlight: var(--skeleton-highlight);
   --color-ring-offset: var(--ring-offset);
@@ -101,6 +128,8 @@
   --color-divider: var(--divider);
   --color-toast-bg: var(--toast-bg);
   --color-toast-text: var(--toast-text);
+  --color-demo-link-hover-bg: var(--demo-link-hover-bg);
+  --color-demo-link-tap-bg: var(--demo-link-tap-bg);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }

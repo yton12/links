@@ -10,6 +10,7 @@ export interface DemoLink {
   icon: ReactElement;
   meta?: string;
   ariaLabel: string;
+  isViewSource?: boolean;
 }
 
 export interface LiveDemosPanelProps {
@@ -35,8 +36,66 @@ const demoLinks: DemoLink[] = [
     icon: <Code2 size={20} aria-hidden="true" />,
     meta: 'This Site',
     ariaLabel: 'View source code for this site on GitHub in new tab',
+    isViewSource: true,
   },
 ];
+
+interface DemoLinkRowProps {
+  link: DemoLink;
+  reduceMotion: boolean;
+  isLast: boolean;
+}
+
+function DemoLinkRow({ link, reduceMotion, isLast }: DemoLinkRowProps): ReactElement {
+  return (
+    <li className={isLast ? 'border-t border-[color:var(--divider)]' : ''}>
+      <motion.a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`group flex h-14 items-center gap-3 px-4 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[color:var(--ring-color)] ${
+          link.isViewSource ? 'opacity-[var(--view-source-opacity)] hover:opacity-100' : ''
+        }`}
+        initial={false}
+        whileHover={
+          reduceMotion
+            ? undefined
+            : {
+                backgroundColor: 'var(--demo-link-hover-bg)',
+              }
+        }
+        whileTap={
+          reduceMotion
+            ? undefined
+            : {
+                backgroundColor: 'var(--demo-link-tap-bg)',
+              }
+        }
+        transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
+        aria-label={link.ariaLabel}
+      >
+        <motion.span
+          className="text-[color:var(--icon-color)] transition-colors group-hover:text-[color:var(--icon-color-hover)]"
+          initial={false}
+        >
+          {link.icon}
+        </motion.span>
+        <span className="flex-1 text-sm font-medium text-[color:var(--text-primary)]">
+          {link.label}
+        </span>
+        {link.meta && <span className="text-xs text-[color:var(--text-muted)]">{link.meta}</span>}
+        <motion.span
+          className="text-[color:var(--icon-color)] transition-colors group-hover:text-[color:var(--icon-color-hover)]"
+          initial={{ x: 0, opacity: 0.5 }}
+          whileHover={reduceMotion ? undefined : { x: 4, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+        >
+          <ChevronRight size={16} aria-hidden="true" />
+        </motion.span>
+      </motion.a>
+    </li>
+  );
+}
 
 export function LiveDemosPanel({ reduceMotion }: LiveDemosPanelProps): ReactElement {
   return (
@@ -48,38 +107,14 @@ export function LiveDemosPanel({ reduceMotion }: LiveDemosPanelProps): ReactElem
         aria-label="Live demo links"
         className="overflow-hidden rounded-xl border border-[color:var(--card-border)] bg-[color:var(--card-surface)]"
       >
-        <ul className="divide-y divide-[color:var(--divider)]">
+        <ul>
           {demoLinks.map((link) => (
-            <li key={link.href}>
-              <motion.a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-14 items-center gap-3 px-4 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[color:var(--ring-color)]"
-                whileTap={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        backgroundColor: 'var(--skeleton-base)',
-                      }
-                }
-                transition={{ duration: 0.1 }}
-                aria-label={link.ariaLabel}
-              >
-                <span className="text-[color:var(--icon-color)]">{link.icon}</span>
-                <span className="flex-1 text-sm font-medium text-[color:var(--text-primary)]">
-                  {link.label}
-                </span>
-                {link.meta && (
-                  <span className="text-xs text-[color:var(--text-muted)]">{link.meta}</span>
-                )}
-                <ChevronRight
-                  size={16}
-                  className="text-[color:var(--icon-color)] opacity-50"
-                  aria-hidden="true"
-                />
-              </motion.a>
-            </li>
+            <DemoLinkRow
+              key={link.href}
+              link={link}
+              reduceMotion={reduceMotion}
+              isLast={link.isViewSource === true}
+            />
           ))}
         </ul>
       </nav>
