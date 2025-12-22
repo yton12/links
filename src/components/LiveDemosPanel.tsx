@@ -1,7 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronRight, Code2, FlaskConical, Globe, MessageCircleQuestion } from 'lucide-react';
+import {
+  ChevronRight,
+  Code2,
+  ExternalLink,
+  FlaskConical,
+  Globe,
+  Heart,
+  MessageCircleQuestion,
+} from 'lucide-react';
 import Link from 'next/link';
 import { type ReactElement } from 'react';
 
@@ -13,6 +21,7 @@ export interface DemoLink {
   ariaLabel: string;
   isViewSource?: boolean;
   isInternal?: boolean;
+  isSupport?: boolean;
 }
 
 export interface LiveDemosPanelProps {
@@ -47,6 +56,13 @@ const demoLinks: DemoLink[] = [
     ariaLabel: 'View frequently asked questions',
     isInternal: true,
   },
+  {
+    label: 'Support the work',
+    href: 'https://buymeacoffee.com/dinesh_d',
+    icon: <Heart size={20} aria-hidden="true" />,
+    ariaLabel: 'Support the developer on Buy Me a Coffee (opens in new tab)',
+    isSupport: true,
+  },
 ];
 
 interface DemoLinkRowProps {
@@ -60,26 +76,35 @@ function DemoLinkRow({ link, reduceMotion, hasDivider }: DemoLinkRowProps): Reac
     link.isViewSource ? 'opacity-[var(--view-source-opacity)] hover:opacity-100' : ''
   }`;
 
+  const iconColorClass = link.isSupport
+    ? 'text-[color:var(--support-icon-color)]'
+    : 'text-[color:var(--icon-color)] transition-colors group-hover:text-[color:var(--icon-color-hover)]';
+
+  const labelColorClass = link.isSupport
+    ? 'text-[color:var(--support-text-color)]'
+    : 'text-[color:var(--text-primary)]';
+
   const content = (
     <>
-      <motion.span
-        className="text-[color:var(--icon-color)] transition-colors group-hover:text-[color:var(--icon-color-hover)]"
-        initial={false}
-      >
+      <motion.span className={iconColorClass} initial={false}>
         {link.icon}
       </motion.span>
-      <span className="flex-1 text-sm font-medium text-[color:var(--text-primary)]">
-        {link.label}
-      </span>
+      <span className={`flex-1 text-sm font-medium ${labelColorClass}`}>{link.label}</span>
       {link.meta && <span className="text-xs text-[color:var(--text-muted)]">{link.meta}</span>}
-      <motion.span
-        className="text-[color:var(--icon-color)] transition-colors group-hover:text-[color:var(--icon-color-hover)]"
-        initial={{ x: 0, opacity: 0.5 }}
-        whileHover={reduceMotion ? undefined : { x: 4, opacity: 1 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-      >
-        <ChevronRight size={16} aria-hidden="true" />
-      </motion.span>
+      {link.isSupport ? (
+        <span className="text-[color:var(--support-icon-color)] opacity-40">
+          <ExternalLink size={14} aria-hidden="true" />
+        </span>
+      ) : (
+        <motion.span
+          className="text-[color:var(--icon-color)] transition-colors group-hover:text-[color:var(--icon-color-hover)]"
+          initial={{ x: 0, opacity: 0.5 }}
+          whileHover={reduceMotion ? undefined : { x: 4, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+        >
+          <ChevronRight size={16} aria-hidden="true" />
+        </motion.span>
+      )}
     </>
   );
 
@@ -127,6 +152,7 @@ function DemoLinkRow({ link, reduceMotion, hasDivider }: DemoLinkRowProps): Reac
               ? undefined
               : {
                   backgroundColor: 'var(--demo-link-tap-bg)',
+                  ...(link.isSupport && { scale: 0.99 }),
                 }
           }
           transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
@@ -155,7 +181,9 @@ export function LiveDemosPanel({ reduceMotion }: LiveDemosPanelProps): ReactElem
               key={link.href}
               link={link}
               reduceMotion={reduceMotion}
-              hasDivider={link.isViewSource === true || link.isInternal === true}
+              hasDivider={
+                link.isViewSource === true || link.isInternal === true || link.isSupport === true
+              }
             />
           ))}
         </ul>

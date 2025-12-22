@@ -45,6 +45,8 @@
   --demo-link-hover-bg: rgba(255, 255, 255, 0.05);
   --demo-link-tap-bg: rgba(255, 255, 255, 0.1);
   --view-source-opacity: 0.8;
+  --support-text-color: #71717a;
+  --support-icon-color: #a1a1aa;
   --scrollbar-thumb: #27272a;
   --scrollbar-thumb-hover: #52525b;
   --scrollbar-track: transparent;
@@ -97,6 +99,8 @@
   --demo-link-hover-bg: #f4f4f5;
   --demo-link-tap-bg: #e4e4e7;
   --view-source-opacity: 0.8;
+  --support-text-color: #71717a;
+  --support-icon-color: #a1a1aa;
   --scrollbar-thumb: #d4d4d8;
   --scrollbar-thumb-hover: #a1a1aa;
   --scrollbar-track: transparent;
@@ -140,6 +144,8 @@
   --color-toast-text: var(--toast-text);
   --color-demo-link-hover-bg: var(--demo-link-hover-bg);
   --color-demo-link-tap-bg: var(--demo-link-tap-bg);
+  --color-support-text: var(--support-text-color);
+  --color-support-icon: var(--support-icon-color);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
