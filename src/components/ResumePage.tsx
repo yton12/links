@@ -87,7 +87,7 @@ export function ResumePage(): React.ReactElement {
         >
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between print:gap-2">
             <div>
-              <h1 className="text-3xl font-bold uppercase tracking-tight text-[color:var(--text-primary)] print:text-2xl print:text-slate-900">
+              <h1 className="text-3xl font-bold uppercase tracking-tight text-[color:var(--text-primary)] text-balance print:text-2xl print:text-slate-900">
                 {resumeData.name}
               </h1>
               <p className="mt-1 text-base font-medium text-[color:var(--text-secondary)] print:mt-0.5 print:text-sm print:text-slate-600">

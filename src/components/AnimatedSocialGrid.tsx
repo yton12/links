@@ -2,6 +2,8 @@
 
 import { motion, type Variants } from 'framer-motion';
 
+import { useHaptic } from '@/lib/useHaptic';
+
 export interface AnimatedSocialGridProps {
   reduceMotion: boolean;
 }
@@ -95,11 +97,10 @@ const reducedVariants: Variants = {
 export function AnimatedSocialGrid({ reduceMotion }: AnimatedSocialGridProps): React.ReactElement {
   const activeContainerVariants = reduceMotion ? reducedVariants : containerVariants;
   const activeIconVariants = reduceMotion ? reducedVariants : iconVariants;
+  const { triggerHaptic } = useHaptic();
 
   const handleTap = (): void => {
-    if ('vibrate' in navigator) {
-      navigator.vibrate(10);
-    }
+    triggerHaptic('light');
   };
 
   return (

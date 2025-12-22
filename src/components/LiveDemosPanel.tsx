@@ -13,6 +13,8 @@ import {
 import Link from 'next/link';
 import { type ReactElement } from 'react';
 
+import { useHaptic } from '@/lib/useHaptic';
+
 export interface DemoLink {
   label: string;
   href: string;
@@ -69,12 +71,24 @@ interface DemoLinkRowProps {
   link: DemoLink;
   reduceMotion: boolean;
   hasDivider: boolean;
+  onViewSourceClick?: () => void;
 }
 
-function DemoLinkRow({ link, reduceMotion, hasDivider }: DemoLinkRowProps): ReactElement {
+function DemoLinkRow({
+  link,
+  reduceMotion,
+  hasDivider,
+  onViewSourceClick,
+}: DemoLinkRowProps): ReactElement {
   const linkClassName = `group flex h-14 items-center gap-3 px-4 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[color:var(--ring-color)] ${
     link.isViewSource ? 'opacity-[var(--view-source-opacity)] hover:opacity-100' : ''
   }`;
+
+  const handleClick = (): void => {
+    if (link.isViewSource && onViewSourceClick) {
+      onViewSourceClick();
+    }
+  };
 
   const iconColorClass = link.isSupport
     ? 'text-[color:var(--support-icon-color)]'
@@ -157,6 +171,7 @@ function DemoLinkRow({ link, reduceMotion, hasDivider }: DemoLinkRowProps): Reac
           }
           transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
           aria-label={link.ariaLabel}
+          onClick={handleClick}
         >
           {content}
         </motion.a>
@@ -166,6 +181,12 @@ function DemoLinkRow({ link, reduceMotion, hasDivider }: DemoLinkRowProps): Reac
 }
 
 export function LiveDemosPanel({ reduceMotion }: LiveDemosPanelProps): ReactElement {
+  const { triggerHaptic } = useHaptic();
+
+  const handleViewSourceClick = (): void => {
+    triggerHaptic('light');
+  };
+
   return (
     <section aria-labelledby="live-demos-heading">
       <h2 id="live-demos-heading" className="sr-only">
@@ -184,6 +205,7 @@ export function LiveDemosPanel({ reduceMotion }: LiveDemosPanelProps): ReactElem
               hasDivider={
                 link.isViewSource === true || link.isInternal === true || link.isSupport === true
               }
+              onViewSourceClick={link.isViewSource ? handleViewSourceClick : undefined}
             />
           ))}
         </ul>

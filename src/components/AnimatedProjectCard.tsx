@@ -93,7 +93,7 @@ export function AnimatedProjectCard({
           {icon}
         </div>
         <div className="flex flex-col">
-          <h3 className="font-semibold text-[color:var(--text-primary)]">{title}</h3>
+          <h3 className="font-semibold text-[color:var(--text-primary)] text-balance">{title}</h3>
           <p className="text-sm text-[color:var(--text-secondary)]">{description}</p>
         </div>
       </div>

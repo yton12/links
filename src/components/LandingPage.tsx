@@ -8,6 +8,7 @@ import { AnimatedAvatar } from './AnimatedAvatar';
 import { AnimatedCTA } from './AnimatedCTA';
 import { AnimatedProjectCard } from './AnimatedProjectCard';
 import { AnimatedSocialGrid } from './AnimatedSocialGrid';
+import { BuildBadge } from './BuildBadge';
 import { LiveDemosPanel } from './LiveDemosPanel';
 import { StatusIndicator } from './StatusIndicator';
 import { ThemeToggle } from './ThemeToggle';
@@ -99,7 +100,9 @@ export function LandingPage({ projects }: LandingPageProps): React.ReactElement 
 
             {/* Identity - Step 2 */}
             <motion.div className="flex flex-col gap-1" variants={activeItemVariants}>
-              <h1 className="text-2xl font-bold text-[color:var(--text-primary)]">Dinesh</h1>
+              <h1 className="text-2xl font-bold text-[color:var(--text-primary)] text-balance">
+                Dinesh
+              </h1>
               <p className="text-sm text-[color:var(--text-secondary)]">
                 I make computers do fun and useful things.
               </p>
@@ -163,8 +166,12 @@ export function LandingPage({ projects }: LandingPageProps): React.ReactElement 
         </div>
 
         {/* Social Grid - Step 6 */}
-        <motion.footer className="mt-auto" variants={activeItemVariants}>
+        <motion.footer
+          className="mt-auto flex flex-col items-center gap-4"
+          variants={activeItemVariants}
+        >
           <AnimatedSocialGrid reduceMotion={shouldReduceMotion ?? false} />
+          <BuildBadge />
         </motion.footer>
       </motion.main>
     </div>

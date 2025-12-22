@@ -3,6 +3,8 @@
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { useState, useCallback } from 'react';
 
+import { useHaptic } from '@/lib/useHaptic';
+
 import { ThemeToggle } from './ThemeToggle';
 
 const GENERAL_EMAIL = 'info@dineshd.dev';
@@ -93,37 +95,38 @@ export function ContactPage(): React.ReactElement {
   const [copiedHire, setCopiedHire] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('Copied to clipboard');
+  const { triggerHaptic } = useHaptic();
 
-  const handleCopy = useCallback(async (email: string, type: 'general' | 'hire'): Promise<void> => {
-    try {
-      await navigator.clipboard.writeText(email);
-      if (type === 'general') {
-        setCopiedGeneral(true);
-        setTimeout(() => setCopiedGeneral(false), 2000);
-      } else {
-        setCopiedHire(true);
-        setTimeout(() => setCopiedHire(false), 2000);
+  const handleCopy = useCallback(
+    async (email: string, type: 'general' | 'hire'): Promise<void> => {
+      try {
+        await navigator.clipboard.writeText(email);
+        if (type === 'general') {
+          setCopiedGeneral(true);
+          setTimeout(() => setCopiedGeneral(false), 2000);
+        } else {
+          setCopiedHire(true);
+          setTimeout(() => setCopiedHire(false), 2000);
+        }
+        setToastMessage('Copied to clipboard');
+        setShowToast(true);
+
+        triggerHaptic('medium');
+
+        setTimeout(() => {
+          setShowToast(false);
+        }, 2000);
+      } catch {
+        // Fallback: select the email text for manual copy
+        setToastMessage('Could not copy - please copy manually');
+        setShowToast(true);
+        setTimeout(() => {
+          setShowToast(false);
+        }, 2000);
       }
-      setToastMessage('Copied to clipboard');
-      setShowToast(true);
-
-      // Haptic feedback if available
-      if ('vibrate' in navigator) {
-        navigator.vibrate(10);
-      }
-
-      setTimeout(() => {
-        setShowToast(false);
-      }, 2000);
-    } catch {
-      // Fallback: select the email text for manual copy
-      setToastMessage('Could not copy - please copy manually');
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 2000);
-    }
-  }, []);
+    },
+    [triggerHaptic]
+  );
 
   return (
     <div className="flex min-h-dvh items-center justify-center bg-[color:var(--background)]">

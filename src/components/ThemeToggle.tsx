@@ -5,10 +5,13 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
+import { useHaptic } from '@/lib/useHaptic';
+
 export function ThemeToggle(): React.ReactElement | null {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
   const shouldReduceMotion = useReducedMotion();
+  const { triggerHaptic } = useHaptic();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- Required for SSR hydration mismatch prevention with next-themes
@@ -18,10 +21,7 @@ export function ThemeToggle(): React.ReactElement | null {
   const toggleTheme = (): void => {
     const newTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-
-    if ('vibrate' in navigator) {
-      navigator.vibrate(10);
-    }
+    triggerHaptic('light');
   };
 
   const isDark = resolvedTheme === 'dark';
