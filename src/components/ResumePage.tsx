@@ -241,30 +241,6 @@ export function ResumePage(): React.ReactElement {
             ))}
           </div>
         </motion.section>
-
-        {/* Education */}
-        <motion.section variants={activeItemVariants}>
-          <SectionHeader>Education</SectionHeader>
-          <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h3 className="text-base font-bold text-[color:var(--text-primary)] print:text-[11px] print:text-slate-900">
-                {resumeData.education.institution}
-              </h3>
-              <p className="text-sm text-[color:var(--text-secondary)] print:text-[10px] print:text-slate-700">
-                {resumeData.education.degree}
-              </p>
-            </div>
-            <div className="sm:text-right">
-              <span className="font-mono text-xs text-[color:var(--text-muted)] print:text-[10px] print:text-slate-500">
-                {resumeData.education.graduationDate}
-              </span>
-              <span className="mx-2 text-[color:var(--text-muted)] sm:hidden">•</span>
-              <span className="text-xs font-medium text-[color:var(--text-muted)] sm:block print:text-[9px] print:text-slate-500">
-                GPA: {resumeData.education.gpa}
-              </span>
-            </div>
-          </div>
-        </motion.section>
       </motion.article>
     </div>
   );
