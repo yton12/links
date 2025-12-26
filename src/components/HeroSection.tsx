@@ -30,7 +30,7 @@ export function HeroSection(): React.ReactElement {
       </div>
 
       {/* Status */}
-      <StatusIndicator statusText="Online • Working on PassFX" />
+      <StatusIndicator statusText='Online • git commit -m "merry christmas"' />
     </section>
   );
 }

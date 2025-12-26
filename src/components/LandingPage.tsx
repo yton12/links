@@ -110,7 +110,7 @@ export function LandingPage({ projects }: LandingPageProps): React.ReactElement 
 
             {/* Status */}
             <motion.div variants={activeItemVariants}>
-              <StatusIndicator statusText="Online • Working on PassFX" />
+              <StatusIndicator statusText='Online • git commit -m "merry christmas"' />
             </motion.div>
           </motion.section>
 
