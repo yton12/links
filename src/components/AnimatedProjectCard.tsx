@@ -9,7 +9,7 @@ export interface AnimatedProjectCardProps {
   href: string;
   icon: ReactNode;
   badges: string[];
-  glowColor: 'blue' | 'green';
+  glowColor: 'blue' | 'green' | 'red';
   reduceMotion: boolean;
 }
 
@@ -17,6 +17,7 @@ const glowStyles = {
   blue: 'before:bg-gradient-to-t before:from-blue-500/[var(--glow-opacity)] before:to-transparent',
   green:
     'before:bg-gradient-to-t before:from-emerald-500/[var(--glow-opacity)] before:to-transparent',
+  red: 'before:bg-gradient-to-t before:from-red-500/[var(--glow-opacity)] before:to-transparent',
 } as const;
 
 const cardVariants: Variants = {
@@ -61,10 +62,23 @@ export function AnimatedProjectCard({
   glowColor,
   reduceMotion,
 }: AnimatedProjectCardProps): React.ReactElement {
-  const hoverBorderColor =
-    glowColor === 'blue' ? 'var(--card-border-hover)' : 'var(--card-border-hover-alt)';
-  const hoverShadow =
-    glowColor === 'blue' ? 'var(--card-shadow-hover)' : 'var(--card-shadow-hover-alt)';
+  const hoverStyles = {
+    blue: {
+      borderColor: 'var(--card-border-hover)',
+      boxShadow: 'var(--card-shadow-hover)',
+    },
+    green: {
+      borderColor: 'var(--card-border-hover-alt)',
+      boxShadow: 'var(--card-shadow-hover-alt)',
+    },
+    red: {
+      borderColor: 'rgba(239, 68, 68, 0.5)',
+      boxShadow: '0 4px 20px rgba(239, 68, 68, 0.15)',
+    },
+  } as const;
+
+  const hoverBorderColor = hoverStyles[glowColor].borderColor;
+  const hoverShadow = hoverStyles[glowColor].boxShadow;
 
   const customHoverVariant = {
     ...cardVariants.hover,

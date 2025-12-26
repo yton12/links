@@ -56,7 +56,7 @@ export interface ProjectCardData {
   href: string;
   icon: ReactNode;
   badges: string[];
-  glowColor: 'blue' | 'green';
+  glowColor: 'blue' | 'green' | 'red';
 }
 
 export interface LandingPageProps {

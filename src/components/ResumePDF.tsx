@@ -298,23 +298,25 @@ export function ResumePDF(): React.ReactElement {
         {/* Featured Projects */}
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>Featured Projects</Text>
-          {resumeData.projects.map((project) => (
-            <View key={project.title} style={styles.projectItem}>
-              <View style={styles.projectHeader}>
-                <Text style={styles.projectTitle}>{project.title}</Text>
-                <Text style={styles.techBadge}>{project.techStack}</Text>
+          {resumeData.projects
+            .filter((project) => project.title !== 'SweetHearty')
+            .map((project) => (
+              <View key={project.title} style={styles.projectItem}>
+                <View style={styles.projectHeader}>
+                  <Text style={styles.projectTitle}>{project.title}</Text>
+                  <Text style={styles.techBadge}>{project.techStack}</Text>
+                </View>
+                <Text style={styles.projectDescription}>{project.description}</Text>
+                <View style={styles.bulletList}>
+                  {project.bullets.map((bullet, i) => (
+                    <View key={i} style={styles.bulletItem}>
+                      <Text style={styles.bullet}>›</Text>
+                      <Text style={styles.bulletText}>{bullet}</Text>
+                    </View>
+                  ))}
+                </View>
               </View>
-              <Text style={styles.projectDescription}>{project.description}</Text>
-              <View style={styles.bulletList}>
-                {project.bullets.map((bullet, i) => (
-                  <View key={i} style={styles.bulletItem}>
-                    <Text style={styles.bullet}>›</Text>
-                    <Text style={styles.bulletText}>{bullet}</Text>
-                  </View>
-                ))}
-              </View>
-            </View>
-          ))}
+            ))}
         </View>
 
         {/* Professional Experience */}

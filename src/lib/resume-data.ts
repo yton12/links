@@ -80,6 +80,18 @@ export const resumeData: ResumeData = {
   ],
   projects: [
     {
+      title: 'Holiday.EXE',
+      techStack: 'TypeScript, Next.js, Capacitor, Framer Motion',
+      description:
+        'A high-performance, offline-first interactive iOS app combining terminal simulation, gaming, and cinematic storytelling.',
+      bullets: [
+        'Engineered a 60fps mobile-native experience using Capacitor and Next.js, featuring custom delta-time physics and optimized parallax rendering.',
+        'Implemented a complex state machine using Zustand to manage biometric auth simulation, mini-games, and terminal encryption puzzles.',
+        'Designed a polished "love letter" software architecture with strict TypeScript safety and zero-latency transition effects.',
+      ],
+      codeUrl: 'https://github.com/dinesh-git17/christmas-gift',
+    },
+    {
       title: 'Debate Lab',
       techStack: 'TypeScript, Next.js, AI SDKs',
       description:

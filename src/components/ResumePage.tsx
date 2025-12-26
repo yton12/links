@@ -179,18 +179,23 @@ export function ResumePage(): React.ReactElement {
           <SectionHeader>Featured Engineering Projects</SectionHeader>
           <div className="space-y-4 print:space-y-1.5">
             {resumeData.projects.map((project, index) => (
-              <motion.div key={project.title} variants={activeItemVariants} custom={index}>
+              <motion.div
+                key={project.title}
+                variants={activeItemVariants}
+                custom={index}
+                className={project.title === 'SweetHearty' ? 'print:hidden' : ''}
+              >
                 <div className="mb-1 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between print:mb-0">
                   <h3 className="text-base font-bold text-[color:var(--text-primary)] print:text-[12px] print:text-slate-900">
                     {project.title}
                   </h3>
-                  <div className="flex items-center gap-2 text-xs">
+                  <div className="flex flex-wrap items-center gap-2 text-xs">
                     <TechBadge>{project.techStack}</TechBadge>
                     <a
                       href={project.codeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-[color:var(--accent-cyan)] transition-colors hover:text-[color:var(--accent-cyan-dark)] print:hidden"
+                      className="flex shrink-0 items-center gap-1 text-[color:var(--accent-cyan)] transition-colors hover:text-[color:var(--accent-cyan-dark)] print:hidden"
                     >
                       View Code
                       <ExternalLink size={12} />
