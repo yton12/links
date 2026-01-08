@@ -9,7 +9,7 @@ export interface AnimatedProjectCardProps {
   href: string;
   icon: ReactNode;
   badges: string[];
-  glowColor: 'blue' | 'green' | 'red';
+  glowColor: 'blue' | 'green' | 'red' | 'purple';
   reduceMotion: boolean;
 }
 
@@ -18,6 +18,8 @@ const glowStyles = {
   green:
     'before:bg-gradient-to-t before:from-emerald-500/[var(--glow-opacity)] before:to-transparent',
   red: 'before:bg-gradient-to-t before:from-red-500/[var(--glow-opacity)] before:to-transparent',
+  purple:
+    'before:bg-gradient-to-t before:from-purple-500/[var(--glow-opacity)] before:to-transparent',
 } as const;
 
 const cardVariants: Variants = {
@@ -74,6 +76,10 @@ export function AnimatedProjectCard({
     red: {
       borderColor: 'rgba(239, 68, 68, 0.5)',
       boxShadow: '0 4px 20px rgba(239, 68, 68, 0.15)',
+    },
+    purple: {
+      borderColor: 'rgba(168, 85, 247, 0.5)',
+      boxShadow: '0 4px 20px rgba(168, 85, 247, 0.15)',
     },
   } as const;
 

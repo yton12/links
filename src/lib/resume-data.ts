@@ -57,7 +57,7 @@ export const resumeData: ResumeData = {
     linkedin: 'linkedin.com/in/dineshsdawonauth',
   },
   summary:
-    'Senior Software Engineer and Data Scientist with 5+ years of experience engineering scalable systems and data-driven applications. Proven expertise in full-stack development (TypeScript, Python) and AI orchestration. Skilled in translating complex business needs into high-performance technical solutions, having reduced manual reporting time by 40% and improved data processing efficiency by 25% in previous enterprise roles.',
+    'Software Engineer and Data Scientist with 5+ years of experience engineering scalable systems and data-driven applications. Proven expertise in full-stack development (TypeScript, Python) and AI orchestration. Skilled in translating complex business needs into high-performance technical solutions, having reduced manual reporting time by 40% and improved data processing efficiency by 25% in previous enterprise roles.',
   skills: [
     {
       category: 'Languages',
@@ -79,6 +79,18 @@ export const resumeData: ResumeData = {
     },
   ],
   projects: [
+    {
+      title: 'Yield',
+      techStack: 'TypeScript, Next.js, Zustand, Framer Motion',
+      description:
+        'An interactive algorithm visualization platform that executes real implementations step-by-step using JavaScript generators.',
+      bullets: [
+        'Architected a generator-driven execution engine where each yield represents an actual algorithm operation, ensuring visualizations stay perfectly synchronized with real code logic.',
+        'Implemented 20+ algorithms across 6 categories (sorting, pathfinding, trees, graphs, interview problems, patterns) with adjustable playback speed and deep-linkable states.',
+        'Built comprehensive learning pages with KaTeX-rendered complexity analysis, multi-language code examples, and interactive preset demos.',
+      ],
+      codeUrl: 'https://github.com/dinesh-git17/yield',
+    },
     {
       title: 'Holiday.EXE',
       techStack: 'TypeScript, Next.js, Capacitor, Framer Motion',

@@ -1,6 +1,16 @@
+import { Workflow } from 'lucide-react';
+
 import { LandingPage } from '@/components/LandingPage';
 
 const projects = [
+  {
+    title: 'Yield',
+    description: 'Interactive algorithm visualizer',
+    href: 'https://github.com/dinesh-git17/yield',
+    icon: <Workflow size={20} aria-hidden="true" />,
+    badges: ['Next.js', 'TypeScript'],
+    glowColor: 'purple' as const,
+  },
   {
     title: 'PassFX',
     description: 'Terminal-based password manager',

@@ -19,16 +19,16 @@ const styles = StyleSheet.create({
   page: {
     fontFamily: 'Helvetica',
     fontSize: 10,
-    paddingTop: 30,
-    paddingBottom: 30,
+    paddingTop: 25,
+    paddingBottom: 25,
     paddingHorizontal: 35,
     backgroundColor: colors.white,
     color: colors.darkGray,
   },
   // Header
   header: {
-    marginBottom: 12,
-    paddingBottom: 10,
+    marginBottom: 10,
+    paddingBottom: 8,
     borderBottomWidth: 2,
     borderBottomColor: colors.black,
   },
@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
     fontSize: 9.5,
     lineHeight: 1.5,
     color: colors.gray,
-    marginBottom: 14,
+    marginBottom: 10,
   },
   // Section
   section: {
-    marginBottom: 12,
+    marginBottom: 10,
   },
   sectionHeader: {
     fontFamily: 'Helvetica-Bold',
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   // Projects
   projectItem: {
-    marginBottom: 10,
+    marginBottom: 8,
   },
   projectHeader: {
     flexDirection: 'row',
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
   },
   // Experience
   expItem: {
-    marginBottom: 10,
+    marginBottom: 8,
   },
   expHeader: {
     flexDirection: 'row',
@@ -299,7 +299,7 @@ export function ResumePDF(): React.ReactElement {
         <View style={styles.section}>
           <Text style={styles.sectionHeader}>Featured Projects</Text>
           {resumeData.projects
-            .filter((project) => project.title !== 'SweetHearty')
+            .filter((project) => !['SweetHearty', 'Holiday.EXE'].includes(project.title))
             .map((project) => (
               <View key={project.title} style={styles.projectItem}>
                 <View style={styles.projectHeader}>

@@ -6,12 +6,14 @@ export interface StatusIndicatorProps {
   statusText: string;
 }
 
-const HOLIDAY_END_DATE = new Date('2025-12-30T23:59:59');
-const DEFAULT_STATUS_TEXT = 'Online • Working on PassFX';
+const HOLIDAY_START_DATE = new Date('2026-12-20T00:00:00');
+const HOLIDAY_END_DATE = new Date('2026-12-30T23:59:59');
+const DEFAULT_STATUS_TEXT = 'Online • Working on Yield';
 const HOLIDAY_STATUS_TEXT = 'Online • git commit -m "merry christmas"';
 
 function isHolidaySeason(): boolean {
-  return new Date() <= HOLIDAY_END_DATE;
+  const now = new Date();
+  return now >= HOLIDAY_START_DATE && now <= HOLIDAY_END_DATE;
 }
 
 function ChristmasTreeIcon(): React.ReactElement {

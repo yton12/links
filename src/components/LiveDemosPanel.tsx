@@ -10,6 +10,7 @@ import {
   Heart,
   MessageCircleQuestion,
   Snowflake,
+  Workflow,
 } from 'lucide-react';
 import Link from 'next/link';
 import { type ReactElement } from 'react';
@@ -32,6 +33,12 @@ export interface LiveDemosPanelProps {
 }
 
 const demoLinks: DemoLink[] = [
+  {
+    label: 'Yield Live',
+    href: 'https://yield.dineshd.dev',
+    icon: <Workflow size={20} aria-hidden="true" />,
+    ariaLabel: 'Open Yield algorithm visualizer in new tab',
+  },
   {
     label: 'PassFX Live',
     href: 'https://passfx.dineshd.dev',
